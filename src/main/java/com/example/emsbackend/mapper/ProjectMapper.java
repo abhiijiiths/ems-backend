@@ -8,7 +8,9 @@ public class ProjectMapper {
         ProjectDto projectDto = new ProjectDto(
                 project.getId(),
                 project.getProjectName(),
-                project.getProjectDec()
+                project.getProjectDec(),
+                project.getEmployees()
+
         );
         return projectDto;
     }
@@ -17,7 +19,8 @@ public class ProjectMapper {
         Project project = new Project(
                 projectDto.getId(),
                 projectDto.getProjectName(),
-                projectDto.getProjectDec()
+                projectDto.getProjectDec(),
+                projectDto.getEmployees()
         );
         return project;
     }

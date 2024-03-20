@@ -26,5 +26,11 @@ public class Employee {
     @Column(name = "email_id",nullable = false,unique = true)
     private String email;
     private Integer age;
+    @ManyToOne
+    @JoinColumn(name = "project_id",insertable = false,updatable = false)
+    private Project project;
+
+    @Column(name = "project_id")
+    private Long projectId;
 
 }

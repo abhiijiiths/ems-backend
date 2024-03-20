@@ -1,6 +1,7 @@
 package com.example.emsbackend.dto;
 
 
+import com.example.emsbackend.entity.Project;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,4 +21,6 @@ public class EmployeeDto {
     private String lastName;
     private String email;
     private Integer age;
+    private Project project;
+    private Long projectId;
 }
