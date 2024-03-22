@@ -24,6 +24,6 @@ public class Organization {
     @Column(name = "org_dec")
     private String orgDec;
 
-    @OneToMany(mappedBy = "organization")
+    @OneToMany(mappedBy = "organization",cascade = CascadeType.REMOVE)
     private Set<Department> departments;
 }

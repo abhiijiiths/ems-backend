@@ -4,6 +4,7 @@ import com.example.emsbackend.entity.Organization;
 import com.example.emsbackend.pojo.AddDepRequest;
 import com.example.emsbackend.services.OrganizationService;
 import lombok.AllArgsConstructor;
+import org.aspectj.bridge.IMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class OrganisationController {
          List<Organization> organizations = organizationService.getAllOrganisation();
          return ResponseEntity.ok(organizations);
      }
-     @PutMapping
+     @PostMapping
      public ResponseEntity<Organization> createNewOrg(@RequestBody Organization org){
          return new ResponseEntity<>(organizationService.createNewOrg(org),HttpStatus.CREATED);
      }

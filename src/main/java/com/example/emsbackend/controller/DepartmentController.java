@@ -26,7 +26,7 @@ public class DepartmentController {
     public ResponseEntity<List<Department>> getAllDepartments(){
         return ResponseEntity.ok(departmentService.getAllDepartments());
     }
-    @PutMapping
+    @PostMapping
     public ResponseEntity<Department> createNewDept(@RequestBody Department dept){
         Department department = departmentService.createNewDept(dept);
         return new ResponseEntity<>(department,HttpStatus.CREATED);

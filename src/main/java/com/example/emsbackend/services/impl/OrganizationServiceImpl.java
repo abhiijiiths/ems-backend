@@ -44,7 +44,11 @@ public class OrganizationServiceImpl implements OrganizationService {
     public Organization delOrgById(Long id) {
         Organization organization = organizationRepository.findById(id).orElseThrow(()->
                 new ResourseNotFoundException("Org not found"));
-        organizationRepository.deleteById(id);
+        try {
+            organizationRepository.deleteById(id);
+        }catch (Exception DataIntegrityViolationException){
+            throw new  ResourseNotFoundException("Assosiated with a Department");
+        }
         return organization;
     }
 

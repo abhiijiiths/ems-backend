@@ -26,10 +26,10 @@ public class Department {
     private String deptDec;
 
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "org_id",insertable = false,updatable = false)
     private Organization organization;
 
-    @Column(name = "org_id")
+    @Column(name = "org_id",nullable = false)
     private Long orgId;
 }
