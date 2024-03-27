@@ -2,6 +2,7 @@ package com.example.emsbackend.services.impl;
 
 import com.example.emsbackend.dto.EmployeeDto;
 import com.example.emsbackend.entity.Employee;
+import com.example.emsbackend.exception.EmsCoustomException;
 import com.example.emsbackend.exception.ResourseNotFoundException;
 import com.example.emsbackend.mapper.EmployeeMapper;
 import com.example.emsbackend.repository.EmployeeRepository;
@@ -28,7 +29,7 @@ public class EmployeeServiceimpl implements EmployeeService {
     @Override
     public EmployeeDto getEmployeeById(Long id) {
         Employee employee = employeeRepository.findById(id)
-                .orElseThrow(()-> new ResourseNotFoundException("Employee Not Exist with Given id "+id));
+                .orElseThrow(()-> new EmsCoustomException("Employee Not Exist with Given id "+id,"400"));
         return EmployeeMapper.mapToEmployeeDto(employee);
     }
 
@@ -56,7 +57,7 @@ public class EmployeeServiceimpl implements EmployeeService {
 
     @Override
     public void deleteEmpoloyeeById(Long id) {
-        Employee employee = employeeRepository.findById(id).
+        employeeRepository.findById(id).
                 orElseThrow(()->new ResourseNotFoundException("Employee Not Fount of id "+id));
         employeeRepository.deleteById(id);
     }
